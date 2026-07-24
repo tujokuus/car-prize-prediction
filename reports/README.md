@@ -1,7 +1,7 @@
 # Reports
 
-Tahan kansioon voi tallentaa:
+This folder can be used to store:
 
-- kuvat EDA:sta
-- mallien vertailutaulukot
-- lyhyet johtopaatokset
+- EDA charts and figures
+- model comparison tables
+- short findings and conclusions

@@ -1,17 +1,17 @@
 # Car Price Prediction Project
 
-Tama projekti on rakennettu autojen myyntidatan exploratory data analysis -tyohon ja hintojen ennustamiseen.
+This project is designed for exploratory data analysis on car sales data and for predicting vehicle prices.
 
-## Tavoite
+## Goals
 
-- ymmartaa datan rakennetta, laatua ja jakaumia
-- tunnistaa hinnan kannalta merkittavat muuttujat
-- rakentaa baseline- ja jatkomallit auton hinnan ennustamiseen
+- understand the structure, quality, and distributions in the dataset
+- identify the most important price-related features
+- build baseline and improved machine learning models for price prediction
 
-## Projektirakenne
+## Project Structure
 
 ```text
-car prediction ml project/
+car-price-prediction/
 ├── data/
 │   ├── raw/
 │   ├── interim/
@@ -28,15 +28,15 @@ car prediction ml project/
 └── requirements.txt
 ```
 
-## Suositeltu eteneminen
+## Recommended Workflow
 
-1. Tuo alkuperainen CSV tai Excel-tiedosto kansioon `data/raw/`.
-2. Avaa notebook `notebooks/01_eda_starter.ipynb`.
-3. Tee datan laadun tarkistus ja ensimmainen EDA.
-4. Rakenna ensimmainen baseline-malli komennolla `python -m src.car_price_prediction.train`.
-5. Tallenna prosessoitu data kansioon `data/processed/` ja mallit kansioon `models/`.
+1. Place the original CSV or Excel file in `data/raw/`.
+2. Open the notebook `notebooks/01_eda_starter.ipynb`.
+3. Perform an initial data quality check and EDA pass.
+4. Train the first baseline model with `python -m src.car_price_prediction.train`.
+5. Save processed datasets to `data/processed/` and trained models to `models/`.
 
-## Ensiasennus
+## Environment Setup
 
 ```bash
 python -m venv .venv
@@ -44,24 +44,24 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Ensimmainen baseline
+## First Baseline Model
 
-Kun datasetissa on sarake `price`, voit kokeilla baselinea:
+If your dataset includes a `price` column, you can run the baseline model with:
 
 ```bash
 python -m src.car_price_prediction.train --input data/raw/cars.csv
 ```
 
-Oletuksena skripti:
-- lukee CSV:n
-- rakentaa yksinkertaiset piirteet
-- jakaa datan train/test-osaan
-- kouluttaa `RandomForestRegressor`-mallin
-- tulostaa `MAE`, `RMSE` ja `R2`
+By default, the script:
+- reads a CSV file
+- builds simple features
+- splits the data into train and test sets
+- trains a `RandomForestRegressor`
+- prints `MAE`, `RMSE`, and `R2`
 
-## Seuraavat kehitysaskeleet
+## Next Development Steps
 
-- lisata tarkempi feature engineering
-- testata `XGBoost`, `LightGBM` tai `CatBoost`
-- lisata cross-validation
-- tuottaa kuvat ja yhteenvedot kansioon `reports/`
+- add more robust feature engineering
+- test `XGBoost`, `LightGBM`, or `CatBoost`
+- add cross-validation
+- generate charts and summaries in `reports/`
