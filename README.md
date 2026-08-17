@@ -1,5 +1,7 @@
 # Car Price Prediction
 
+> **Project status:** This project is not finished and is still under active development.
+
 This project explores European vehicle listing data and develops machine learning models
 for vehicle price prediction.
 
@@ -17,6 +19,7 @@ Run the notebooks in this order:
 1. `notebooks/eda.ipynb` - data quality, distributions, price relationships, countries, and taxation
 2. `notebooks/baseline_modeling.ipynb` - model comparison, ensemble, and light hyperparameter tuning
 3. `notebooks/model_diagnostics.ipynb` - error analysis, engineered features, and permutation importance
+4. `notebooks/advanced_modeling.ipynb` - data cleaning, feature selection, deeper model comparison, and the EUR 200k experiment
 
 Each notebook is self-contained and reads `data/raw/cars.csv`.
 
@@ -32,7 +35,8 @@ car-price-prediction/
 |-- notebooks/
 |   |-- eda.ipynb
 |   |-- baseline_modeling.ipynb
-|   `-- model_diagnostics.ipynb
+|   |-- model_diagnostics.ipynb
+|   `-- advanced_modeling.ipynb
 |-- reports/
 |-- src/car_price_prediction/
 |-- tests/
