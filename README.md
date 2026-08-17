@@ -1,67 +1,57 @@
-# Car Price Prediction Project
+# Car Price Prediction
 
-This project is designed for exploratory data analysis on car sales data and for predicting vehicle prices.
+This project explores European vehicle listing data and develops machine learning models
+for vehicle price prediction.
 
 ## Goals
 
-- understand the structure, quality, and distributions in the dataset
-- identify the most important price-related features
-- build baseline and improved machine learning models for price prediction
+- understand data quality, distributions, and market differences
+- identify the features most strongly related to vehicle price
+- compare baseline regression models and tune the strongest candidates
+- diagnose model errors and test focused feature engineering ideas
+
+## Notebook Workflow
+
+Run the notebooks in this order:
+
+1. `notebooks/eda.ipynb` - data quality, distributions, price relationships, countries, and taxation
+2. `notebooks/baseline_modeling.ipynb` - model comparison, ensemble, and light hyperparameter tuning
+3. `notebooks/model_diagnostics.ipynb` - error analysis, engineered features, and permutation importance
+
+Each notebook is self-contained and reads `data/raw/cars.csv`.
 
 ## Project Structure
 
 ```text
 car-price-prediction/
-├── data/
-│   ├── raw/
-│   ├── interim/
-│   └── processed/
-├── models/
-├── notebooks/
-├── reports/
-├── src/
-│   └── car_price_prediction/
-├── tests/
-├── .gitignore
-├── pyproject.toml
-├── README.md
-└── requirements.txt
+|-- data/
+|   |-- raw/
+|   |-- interim/
+|   `-- processed/
+|-- models/
+|-- notebooks/
+|   |-- eda.ipynb
+|   |-- baseline_modeling.ipynb
+|   `-- model_diagnostics.ipynb
+|-- reports/
+|-- src/car_price_prediction/
+|-- tests/
+|-- README.md
+`-- requirements.txt
 ```
-
-## Recommended Workflow
-
-1. Place the original CSV or Excel file in `data/raw/`.
-2. Open the notebook `notebooks/01_eda_starter.ipynb`.
-3. Perform an initial data quality check and EDA pass.
-4. Train the first baseline model with `python -m src.car_price_prediction.train`.
-5. Save processed datasets to `data/processed/` and trained models to `models/`.
 
 ## Environment Setup
 
-```bash
+```powershell
 python -m venv .venv
-.venv\Scripts\activate
+.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-## First Baseline Model
+Select the `.venv` Python environment as the notebook kernel in VS Code.
 
-If your dataset includes a `price` column, you can run the baseline model with:
+## Modeling Note
 
-```bash
-python -m src.car_price_prediction.train --input data/raw/cars.csv
-```
-
-By default, the script:
-- reads a CSV file
-- builds simple features
-- splits the data into train and test sets
-- trains a `RandomForestRegressor`
-- prints `MAE`, `RMSE`, and `R2`
-
-## Next Development Steps
-
-- add more robust feature engineering
-- test `XGBoost`, `LightGBM`, or `CatBoost`
-- add cross-validation
-- generate charts and summaries in `reports/`
+The current validation split has been used during model exploration. Before reporting final
+performance, reserve a new untouched test set. If listing dates become available, prefer a
+chronological test split.
